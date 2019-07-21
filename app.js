@@ -39,10 +39,10 @@ function connectMongoDb() {
       //                      and attach connection and db reference to the app
 
       // using a local service on the same machine
-      //app.locals.dbConnection = await mongodb.MongoClient.connect("mongodb://localhost:27017", {useNewUrlParser: true});
+      app.locals.dbConnection = await mongodb.MongoClient.connect("mongodb://localhost:27017", {useNewUrlParser: true});
 
       // using a named service (e.g. a docker container "mongodbservice")
-      app.locals.dbConnection = await mongodb.MongoClient.connect("mongodb://mongodbservice:27017", {useNewUrlParser: true});
+      //app.locals.dbConnection = await mongodb.MongoClient.connect("mongodb://mongodbservice:27017", {useNewUrlParser: true});
 
       app.locals.db = await app.locals.dbConnection.db("itemdb");
       console.log("Using db: " + app.locals.db.databaseName);
